@@ -1,0 +1,2 @@
+Using TMDb API, the user entered word is searched from the movie database and the all the movies matching with that word are returned as the output.
+Further, using hyperlinks, the cast, release year, genre, etc could be derived by converting the data from JSON format.
