@@ -1,5 +1,5 @@
 function initialize () { 
-
+// adding an event listener once the area under the map is changed
   initMap();
   // map.addListener('bounds_changed', function() {
     map.addListener('bounds_changed', function() {
@@ -8,26 +8,19 @@ function initialize () {
         var ne = newcor.getNorthEast();
         var sw = newcor.getSouthWest();
         
-        // v1 = ne.lat();
-        // v2 = ne.lng();
-        // v3 = sw.lat();
-        // v4 = sw.lng();
-        // l1=(v1+v3)/2;
-        // l2=(v2+v4)/2;
-
+       
          centre=map.getCenter();
          cx=centre.lat();
          cy=centre.lng();
 
          r1=Math.floor(google.maps.geometry.spherical.computeDistanceBetween(centre,ne));
 
-        //r1= Math.pow( Math.pow(centre.lat()-v1 ,2)   *    (Math.pow(centre.lng()-v2),2)        ,0.5);
-        //console.log(r1);
-
+        
 });
 } 
 l1=32.75;
 l2=-97.13;
+
 var r1; var centre, cx,cy;
 function sendRequest () {
 
@@ -55,6 +48,7 @@ function sendRequest () {
    xhr.send(null);
 }
 
+// Initialization of map
 function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 32.75, lng: -97.13},
@@ -79,6 +73,8 @@ function initMap() {
       }
 
 var markerArray=[];
+
+// Used to assign markers to the search results
 function mainMarker(x,y,name,i) {
       
       
@@ -92,6 +88,7 @@ function mainMarker(x,y,name,i) {
         markerArray.push(marker);
       }
 
+// Removes previously marked Markers once a new search is made
 function deleteMarker(){
 
   for (var i = 0; i < markerArray.length; i++) {
@@ -101,6 +98,7 @@ function deleteMarker(){
 }
 
 
+// This function displays the details of the restaurants 
 
 function printName(json)
 {
